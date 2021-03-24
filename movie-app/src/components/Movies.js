@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Title from '../components/Title';
 import Movie from './Movie';
-import getMovies from '../utils/movieService'
+import {getMovies} from '../utils/movieService'
 
 const Movies = () => {
     const [movies, setMovies] = useState([]);
@@ -10,17 +10,14 @@ const Movies = () => {
         const data = await getMovies();
         setMovies(data);
         console.log(data);
-        <Movie />
     }
 
     return (
         <>
             <Title title="Movies" />
-            {/*<section>
+            <section>
                 {movies?.length > 0 ? movies.map((movie) => <Movie key={movie} {...movie}/>) : null}
-            </section>*/}
-
-            {movies?.length > 0 ? <p>{JSON.stringify(movies)}</p> : null}
+            </section>
 
             <button type="button" onClick={handleClick}>
                 Get content
